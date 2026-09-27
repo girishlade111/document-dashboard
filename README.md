@@ -1,30 +1,76 @@
-# Document dashboard
+# Document Dashboard
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A modern, responsive **document management admin dashboard** — browse, search, organize, and track documents through a clean tabbed interface with analytics views, a documents table, notifications center, and a settings panel. Built as a fully client-side Next.js app with dark/light theming.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/gileb64375-5584s-projects/v0-document-dashboard)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/Vhayva95oWr)
+## What it does
 
-## Overview
+- **Dashboard view** — overview cards and charts summarizing document activity, plus recent-activity feeds
+- **Documents view** — sortable, filterable documents table with card layouts, category filters, and a search bar
+- **Notifications view** — notifications center for document events
+- **Settings view** — theme switcher, theme selector, and app settings
+- **AI chatbot widget** — floating chat assistant widget embedded in the dashboard
+- **Theming** — dark/light mode via a theme context provider, customizable with the theme selector
+- **Loading screen** — branded splash screen while the dashboard initializes
+- **Responsive layout** — collapsible sidebar navigation, adapts from mobile to desktop
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## Tech stack
+
+| Layer        | Tech |
+|--------------|------|
+| Framework    | Next.js 15 (App Router, static export) |
+| Language     | TypeScript |
+| UI           | React 19, Tailwind CSS, shadcn/ui (Radix primitives) |
+| Tables       | TanStack React Table (virtualized tables) |
+| Charts       | Recharts |
+| Forms        | React Hook Form + Zod |
+| Icons        | Lucide React |
+| Theming      | next-themes + custom theme context |
+
+## Quick start
+
+Prerequisites: Node.js 18+.
+
+```bash
+npm install          # or: pnpm install
+npm run dev          # dev server at http://localhost:3000
+```
+
+Build a static export:
+
+```bash
+npm run build        # outputs to ./out
+```
+
+Serve the static build:
+
+```bash
+npx serve out        # or deploy ./out anywhere static
+```
+
+## Project structure
+
+```
+app/                # Next.js App Router pages (page, layout, loading)
+components/         # Feature components (sidebar, dashboard-content,
+                    # documents-view, notifications-content, settings-content,
+                    # ai-chatbot-widget, loading-screen, …)
+components/ui/      # shadcn/ui primitives
+contexts/           # Theme context provider
+lib/                # Shared utilities (cn, etc.)
+styles/             # Global styles
+public/             # Static assets
+```
+
+## Environment variables
+
+None required — the app runs entirely client-side with no backend or API keys.
 
 ## Deployment
 
-Your project is live at:
+The project is configured for static export (`output: "export"` in `next.config.mjs`). `npm run build` produces the `./out` directory, which can be hosted on GitHub Pages, Netlify, Cloudflare Pages, or any static host.
 
-**[https://vercel.com/gileb64375-5584s-projects/v0-document-dashboard](https://vercel.com/gileb64375-5584s-projects/v0-document-dashboard)**
+Live demo: https://girishlade111.github.io/document-dashboard/
 
-## Build your app
+---
 
-Continue building your app on:
-
-**[https://v0.app/chat/projects/Vhayva95oWr](https://v0.app/chat/projects/Vhayva95oWr)**
-
-## How It Works
-
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+Built by Girish Lade — https://ladestack.in
